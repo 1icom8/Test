@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="deleteitem.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Delete Item</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="http://localhost:5000/">HOME</a>
+            </div>
+          </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+            <li><a href="/additem">Add_Numbers</a></li>
+            <li><a href="/delete">Delete_Numbers</a></li>
+        </div>
+        <div class="table1">
+        <tr>
+            <th>Select</th>
+            <th>id</th>
+            <th>Date</th>
+            <th>Prize</th>
+            <th>Numbers</th>
+            <th>Payout</th>
+        </tr>
+    </div>
+    
+    <div class="table2"><table id="table">
+        <form action="/delete" method="post">
+            <% lottery.forEach(function(item) { %>
+            <tr>
+                <td><input type="radio" name ="id" value = <%= item.id %></td>
+                <td><%= item.id %></td>
+                <td><%= item.Date %></td>
+                <td><%= item.Prize %></td>
+                <td><%= item.Numbers %></td>
+                <td><%= item.Payout %></td>
+            </tr>
+            <% }) %>            
+        
+    </table>
+</div>
+    <button type="submit">Delete</button>
+        </form>
+</body>
+</html>
